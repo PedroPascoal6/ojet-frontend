@@ -20,6 +20,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask("serve", "Public task. Calls oraclejet-serve to serve the oraclejet application. Can be customized with additional serve tasks.", function (buildType) {
     grunt.task.run([`oraclejet-serve:${buildType}`]);
-  }); 
+  });
+
+  function start(){
+
+  }
 };
 
