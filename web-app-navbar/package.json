@@ -1,0 +1,28 @@
+{
+  "name": "web-app-navbar",
+  "version": "1.0.0",
+  "description": "An Oracle JavaScript Extension Toolkit(JET) web app",
+  "dependencies": {
+    "@oracle/ojet-cli": "^6.0.0",
+    "@oracle/oraclejet": "~6.0.0",
+    "express": "^4.16.4",
+    "@oracle/grunt-oraclejet": "~6.0.0",
+    "@oracle/oraclejet-tooling": "~6.0.0",
+    "grunt": "^1.0.1",
+    "load-grunt-config": "0.19.2",
+    "qunit": "^2.4.1",
+    "qunit-reporter-junit": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "private": true,
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "ojet serve --no-browser"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
