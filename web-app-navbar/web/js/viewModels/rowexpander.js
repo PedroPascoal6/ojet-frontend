@@ -11,7 +11,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
 
             var options = {
                 'rowHeader': 'name',
-                'columns': ['id','resource','start','end']
+                'columns': ['id','superiorid','subordinateid']
             };
             self.dataSource = ko.observable();
             // $( async function()

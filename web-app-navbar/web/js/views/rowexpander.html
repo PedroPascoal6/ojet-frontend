@@ -45,15 +45,17 @@
                 cell.class-name="oj-sm-justify-content-flex-start"
         ></oj-data-grid>
 
+
         <script type="text/html" id="column_header_template">
-            <!-- ko if: $context.key=='resource' -->
-            <span data-bind="text: 'Resource'"></span>
             <!-- /ko -->
-            <!-- ko if: $context.key=='start' -->
-            <span data-bind="text: 'Start Date'"></span>
+            <!-- ko if: $context.key=='id' -->
+            <span data-bind="text: 'id'"></span>
             <!-- /ko -->
-            <!-- ko if: $context.key=='end' -->
-            <span data-bind="text: 'End Date'"></span>
+            <!-- ko if: $context.key=='subordinateid' -->
+            <span data-bind="text: 'subordinateid'"></span>
+            <!-- /ko -->
+            <!-- ko if: $context.key=='superiorid' -->
+            <span data-bind="text: 'superiorid'"></span>
             <!-- /ko -->
         </script>
 
