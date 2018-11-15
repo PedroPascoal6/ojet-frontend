@@ -3,6 +3,85 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
         'ojs/ojdatagrid', 'ojs/ojrowexpander', 'ojs/ojflattenedtreedatagriddatasource', 'ojs/ojjsontreedatasource',],
     function(oj, ko, $)
     {
+        self.clickHandlerSend = function clickHandlerSend(value) {
+            postData(`https://pure-mountain-71887.herokuapp.com/politicians`, {politicianid: value, jail: 'True'})
+                .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+                .catch(error => console.error(error));
+
+            function postData(url = ``, data = {}) {
+                // Default options are marked with *
+                return fetch(url, {
+                    method: "POST", // *GET, POST, PUT, DELETE, etc.
+                    mode: "cors", // no-cors, cors, *same-origin
+                    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: "same-origin", // include, *same-origin, omit
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        // "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", // manual, *follow, error
+                    referrer: "no-referrer", // no-referrer, *client
+                    body: JSON.stringify(data), // body data type must match "Content-Type" header
+                })
+                    .then(response => response.json()); // parses response to JSON
+            }
+            location.reload();
+            alert("Politician has been send to jail");
+        }
+
+        self.clickHandlerPost = function clickHandlerPost(value) {
+            postData(`https://pure-mountain-71887.herokuapp.com/politicians`, {politicianid: value, jail: ''})
+                .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+                .catch(error => console.error(error));
+
+            function postData(url = ``, data = {}) {
+                // Default options are marked with *
+                return fetch(url, {
+                    method: "POST", // *GET, POST, PUT, DELETE, etc.
+                    mode: "cors", // no-cors, cors, *same-origin
+                    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: "same-origin", // include, *same-origin, omit
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        // "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", // manual, *follow, error
+                    referrer: "no-referrer", // no-referrer, *client
+                    body: JSON.stringify(data), // body data type must match "Content-Type" header
+                })
+                    .then(response => response.json()); // parses response to JSON
+            }
+
+            location.reload();
+            alert("Politician go out the jail");
+        }
+
+        self.clickHandlerGenerate = function clickHandlerGenerate(value) {
+            postData(`https://pure-mountain-71887.herokuapp.com/support`, {amount: value})
+                .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+                .catch(error => console.error(error));
+
+            function postData(url = ``, data = {}) {
+                // Default options are marked with *
+                return fetch(url, {
+                    method: "POST", // *GET, POST, PUT, DELETE, etc.
+                    mode: "cors", // no-cors, cors, *same-origin
+                    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: "same-origin", // include, *same-origin, omit
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        // "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", // manual, *follow, error
+                    referrer: "no-referrer", // no-referrer, *client
+                    body: JSON.stringify(data), // body data type must match "Content-Type" header
+                })
+                    .then(response => response.json()); // parses response to JSON
+            }
+
+            location.reload();
+            alert("Politician has been generated");
+        }
 
         function viewModel()
         {
@@ -11,17 +90,9 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
 
             var options = {
                 'rowHeader': 'name',
-                'columns': ['id','superiorid','subordinateid']
+                'columns': ['id','superiorid','superiorName','subordinateid','subordinateName']
             };
             self.dataSource = ko.observable();
-            // $( async function()
-            //     {
-            //         //let data = await userAction();
-            //         let data = [{"attr":{"end":"10/1/2014","id":"t1","name":"Task 1","resource":"Chadwick","start":"1/1/2014"},"children":[{"attr":{"end":"3/1/2014","id":"t1:1","name":"Task 1-1","resource":"Chris","start":"1/1/2014"},"children":[{"attr":{"end":"2/1/2014","id":"t1:1:1","name":"Task 1-1-1","resource":"Henry","start":"1/1/2014"}},{"attr":{"end":"3/1/2014","id":"t1:1:2","name":"Task 1-1-2","resource":"Victor","start":"2/1/2014"}}]},{"attr":{"end":"6/1/2014","id":"t1:2","name":"Task 1-2","resource":"Jim","start":"3/1/2014"},"children":[{"attr":{"end":"5/1/2014","id":"t1:2:1","name":"Task 1-2-1","resource":"Jay","start":"3/1/2014"}},{"attr":{"end":"6/1/2014","id":"t1:2:2","name":"Task 1-2-2","resource":"Karin","start":"5/1/2014"}}]},{"attr":{"end":"8/1/2014","id":"t1:3","name":"Task 1-3","resource":"Chadwick","start":"6/1/2014"}},{"attr":{"end":"10/1/2014","id":"t1:4","name":"Task 1-4","resource":"Chris","start":"8/1/2014"}}]}];
-            //         console.log("data -> " + JSON.stringify(data, null, 2));
-            //         self.dataSource(new oj.FlattenedTreeDataGridDataSource(new oj.JsonTreeDataSource(data), options));
-            //     }
-            // );
 
             $(
                async function(data)
@@ -32,29 +103,10 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 }
             );
 
-            // $.getJSON( "https://crossorigin.me/http://127.0.0.1:5002/employees",
-            //     function(data)
-            //     {
-            //         console.log(JSON.stringify(data, null, 2));
-            //         self.dataSource(new oj.FlattenedTreeDataGridDataSource(new oj.JsonTreeDataSource(data), options));
-            //     }
-            // ,"json");
-
-            // $(
-            //     function (){
-            //         const axios = require('axios');
-            //         axios
-            //             .get("https://pure-mountain-71887.herokuapp.com",CONFIG.config)
-            //             .then(response => {
-            //                 console.log(JSON.stringify(response, null, 2))
-            //             })
-            //     }
-            // );
-
         }
         const userAction = async () => {
             console.log("AQUI")
-            const response = await fetch('https://pure-mountain-71887.herokuapp.com/employees')
+            const response = await fetch('https://pure-mountain-71887.herokuapp.com/politicians')
             const myJson = await response.json(); //extract JSON from the http response
             console.log(JSON.stringify(myJson, null, 2));
             return myJson;

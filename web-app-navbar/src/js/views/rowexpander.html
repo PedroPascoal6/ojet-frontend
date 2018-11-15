@@ -46,14 +46,20 @@
         ></oj-data-grid>
 
         <script type="text/html" id="column_header_template">
-            <!-- ko if: $context.key=='resource' -->
-            <span data-bind="text: 'Resource'"></span>
+            <!-- ko if: $context.key=='id' -->
+            <span data-bind="text: 'ID'"></span>
             <!-- /ko -->
-            <!-- ko if: $context.key=='start' -->
-            <span data-bind="text: 'Start Date'"></span>
+            <!-- ko if: $context.key=='superiorid' -->
+            <span data-bind="text: 'superior ID'"></span>
             <!-- /ko -->
-            <!-- ko if: $context.key=='end' -->
-            <span data-bind="text: 'End Date'"></span>
+            <!-- ko if: $context.key=='superiorName' -->
+            <span data-bind="text: 'superior Name'"></span>
+            <!-- /ko -->
+            <!-- ko if: $context.key=='subordinateid' -->
+            <span data-bind="text: 'subordinate ID'"></span>
+            <!-- /ko -->
+            <!-- ko if: $context.key=='subordinateName' -->
+            <span data-bind="text: 'subordinated Name'"></span>
             <!-- /ko -->
         </script>
 
@@ -62,8 +68,14 @@
             <span data-bind="text: $context.data"></span>
         </script>
 
-
     </div>
+    <!--<button type="button" onclick="clickHandler()">Click Me!</button>-->
+    Send Politician to Jail
+    <input type="text" name="btnSeven" id="btnSeven" value="" onchange="clickHandlerSend(this.value)">
+    Get Out politician from jail
+    <input type="text" name="btnSeven" id="btnSeven2" value="" onchange="clickHandlerPost(this.value)">
+    Generate Politicians
+    <input type="text" name="btnSeven" id="btnSeven3" value="" onchange="clickHandlerGenerate(this.value)">
 </div>
 </body>
 </html>
