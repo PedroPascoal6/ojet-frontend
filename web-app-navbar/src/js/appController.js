@@ -18,9 +18,9 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockout'
       self.router = oj.Router.rootInstance;
 
       self.router.configure({
-       'dashboard': {label: 'Dashboard', isDefault: true},
+       'dashboard': {label: 'Dashboard', },
        'incidents': {label: 'Incidents'},
-       'customers': {label: 'Customers'},
+       'customers': {label: 'Politicians',isDefault: true},
        'profile': {label: 'Profile'},
        'about': {label: 'About'}
       });

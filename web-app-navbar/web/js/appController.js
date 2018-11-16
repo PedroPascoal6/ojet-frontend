@@ -20,7 +20,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockout'
       self.router.configure({
        'dashboard': {label: 'Dashboard', },
        'incidents': {label: 'Incidents'},
-       'customers': {label: 'Customers', isDefault: true},
+       'customers': {label: 'Politicians',isDefault: true},
        'profile': {label: 'Profile'},
        'about': {label: 'About'}
       });
