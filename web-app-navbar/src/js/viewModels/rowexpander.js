@@ -90,7 +90,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
 
             var options = {
                 'rowHeader': 'name',
-                'columns': ['id','superiorid','superiorName','subordinateid','subordinateName']
+                'columns': ['id','superiorid','superiorName','subordinateid','subordinateName','level']
             };
             self.dataSource = ko.observable();
 
